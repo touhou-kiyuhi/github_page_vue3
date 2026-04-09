@@ -1,0 +1,30 @@
+/* 讓整體容器占滿全高，使用 Flex 垂直排列 */
+body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 最外層包裝整個頁面 */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 最小高度 100% 視窗高 */
+}
+
+/* 中間內容區：預設橫向排列（桌面版） */
+.content-wrapper {
+    display: flex;
+    flex: 1; /* 撐開剩餘空間 */
+    padding: 20px;
+    gap: 20px; /* 替代 margin-right 更乾淨 */
+}
+
+/* ========= 🔁 響應式調整（手機） ========= */
+@media (max-width: 610px) {
+    .content-wrapper {
+        flex-direction: column; /* 變成直向排列 */
+    }
+}
