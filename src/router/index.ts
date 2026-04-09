@@ -11,6 +11,9 @@ import Categories from '@/pages/categories/Categories.vue'
 
 import AboutPage from '@/pages/AboutPage.vue'
 
+import DemoPage from '@/pages/DemoPage.vue'
+import Demo from '@/pages/demo/Demo.vue'
+
 
 const router = createRouter({
     // 專案名稱作為 Base URL
@@ -29,13 +32,19 @@ const router = createRouter({
             ]
         },
         {
+            name: 'AboutPage', path: '/about', component: AboutPage, meta: { title: 'touhou-kiyuhi - About' }
+        },
+        {
             name: 'CategoriesPage', path: '/categories', component: CategoriesPage, 
             children: [
                 { name: 'Categories', path: '', component: Categories, meta: { title: 'touhou-kiyuhi - Categories' } }
             ]
         },
         {
-            name: 'AboutPage', path: '/about', component: AboutPage, meta: { title: 'touhou-kiyuhi - About' }
+            name: 'DemoPage', path: '/demo', component: DemoPage, 
+            children: [
+                { name: 'Demo', path: '', component: Demo, meta: { title: 'touhou-kiyuhi - Demo' } }
+            ]
         },
     ],
 })

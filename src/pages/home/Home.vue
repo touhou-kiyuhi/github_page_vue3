@@ -1,8 +1,6 @@
 <script setup lang="ts" name="Home">
-    import CodeBlockFileLoader from '@/components/codeBlock/CodeBlockFileLoader.vue'
-    import CodeBlockMarkdownLoader from '@/components/codeBlock/CodeBlockMarkdownLoader.vue'
-    import ljjmk94ProfileCard from '@/assets/ljjmk94ProfileCardByExtricate.gif'
     import TextTyping from '@/components/TextTyping.vue'
+
     
     const introductionTitleList = [
         ' to My Page', '! Glad You\'re Here', ' to My Blog', ' & Hello!'
@@ -16,10 +14,6 @@
             <p>I primarily program in Python and Java, with occasional coding in Ruby, C, and HTML/CSS/JavaScript.</p>
             <p>This is my personal test website where I practice and record my learning journey, including coding, language study, and anything else I explore.</p>
         </section>
-        <!-- <img :src="ljjmk94ProfileCard" alt="小闇！！" title="窩是隻卯咪！！ 嗷嗷嗷！！"> -->
-        <!-- 待調整 -->
-        <!-- <CodeBlockFileLoader lang="Python" src="/code/helloWorld.py" />
-        <CodeBlockMarkdownLoader src="/markdown/helloWorld/HelloWorld.md" /> -->
     </main>
 </template>
 
