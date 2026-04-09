@@ -1,37 +1,32 @@
 <script setup lang="ts" name="BlogGallery">
-    import BlogCard from '@/components/blog/BlogCard.vue'
     import { computed, ref } from 'vue'
+    import BlogCard from '@/components/blog/BlogCard.vue'
+    
     
     // 處理 Filter
     const selectedTag = ref('all')
     const tagList = [
         { id: "all", name: "Show all" },
-        { id: "test1", name: "Test 1" },
-        { id: "test2", name: "Test 2" },
-        { id: "test3", name: "Test 3" },
+        // 貓咪大戰爭 測資
+        { id: "game", name: "game" },
+        { id: "theBattleCats", name: "the Battle Cats" },
+        { id: "catFruit", name: "cat Fruit" },
     ]
     const activeTag = computed(() => selectedTag.value)
     function selectTag(tagId: string) {
         selectedTag.value = tagId
     }
     // 模擬 data
-    const dataList = [
-        { id: "data1", name: "data 1", tag: "test1" },
-        { id: "data2-1", name: "data 2-1", tag: "test2" },
-        { id: "data2-2", name: "data 2-2", tag: "test2" },
-        { id: "data2-3", name: "data 2-3", tag: "test2" },
-        { id: "data3", name: "data 3", tag: "test3" },
-        { id: "data4", name: "data 4", tag: "test4" },
-        { id: "data5", name: "data 5", tag: "test5" },
-        { id: "data6", name: "data 6", tag: "test6" },
-        { id: "data7", name: "data 7", tag: "test7" },
-        { id: "data8", name: "data 8", tag: "test8" },
-        { id: "data9", name: "data 9", tag: "test9" },
-        { id: "data10", name: "data 10", tag: "test10" },
+    const posts = [
+        { id: "blueCatFruit",  name: "進化的藍色貓薄荷", tags: ["game", "theBattleCats", "catFruit"] }, 
+        { id: "greenCatFruit",  name: "進化的綠色貓薄荷", tags: ["game", "theBattleCats", "catFruit"] }, 
+        { id: "purpleCatFruit",  name: "進化的紫色貓薄荷", tags: ["game", "theBattleCats", "catFruit"] }, 
+        { id: "redCatFruit",  name: "進化的紅色貓薄荷", tags: ["game", "theBattleCats", "catFruit"] }, 
+        { id: "yellowCatFruit",  name: "進化的黃色貓薄荷", tags: ["game", "theBattleCats", "catFruit"] }, 
     ]
-    const filteredDataList = computed(() => {
-        if (selectedTag.value === 'all') return dataList
-        return dataList.filter(item => item.tag === selectedTag.value)
+    const filteredPostList = computed(() => {
+        if (selectedTag.value === 'all') return posts
+        return posts.filter(item => item.tags.includes(selectedTag.value))
     })
 </script>
 
@@ -46,10 +41,10 @@
             > {{ tag.name }} </button>
         </div>
         <div class="row">
-            <div v-for="data in filteredDataList" :key="data.id" class="column">
-                {{ data.name }}
+            <div v-for="post in filteredPostList" :key="post.id" class="column">
+                {{ post.name }}
                 <!-- BlogCard -->
-                <BlogCard :data="data"/>
+                <BlogCard :post="post"/>
             </div>
         </div>
 	</div>

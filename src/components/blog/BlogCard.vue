@@ -1,27 +1,38 @@
 <script setup lang="ts" name="BlogCard">
+    import type { IF_PostSrc } from '@/types/post'
     import catInBox from '@/assets/logo.svg'
-    interface BlogData {
-        name: string
-        tag: string
-        id: string
-    }
-    defineProps<{ data: BlogData }>()
+
+
+    const props = defineProps<{ 
+        post: IF_PostSrc 
+    }>()
 </script>
 
 <template>
-    <article>
-        <!-- 左側 Logo -->
-        <div class="logo">
-            <img :src="catInBox" alt="Site Logo" title="窩是隻卯咪！！ 嗷嗷嗷！！">
-        </div>
-        <!-- 右側內容 -->
-        <div class="card-content">
-            <p> {{ data.name }} </p>
-        </div>
-    </article>
+    <RouterLink :to="{
+        name: 'VideoPost', 
+        params: { tags: props.post.tags.join('/') },
+        query: { id: props.post.id }
+    }" class="blogcard-link">
+        <article>
+            <!-- 左側 Logo -->
+            <div class="logo">
+                <img :src="catInBox" alt="Site Logo" title="窩是隻卯咪！！ 嗷嗷嗷！！">
+            </div>
+            <!-- 右側內容 -->
+            <div class="card-content">
+                <h3>🐾{{ props.post.name }}🐾</h3>
+            </div>
+        </article>
+    </RouterLink>
 </template>
 
 <style scoped>
+    .blogcard-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
     article {
         display: flex;
         align-items: center; /* 讓 logo 和內容垂直置中 */
@@ -68,10 +79,10 @@
         padding: 15px;
         flex-grow: 1;
         background-color: #ffffff;
-        margin-left: 20px; /* 讓內容區塊與 logo 區塊有間距 */
+        margin-left: 5px; /* 讓內容區塊與 logo 區塊有間距 */
     }
 
-    .card h2 {
+    .card h3 {
         margin: 0;
         font-size: 1.4em;
         color: #333;

@@ -1,5 +1,11 @@
 // export type PostType = 'video' | 'others'
 
+export interface IF_PostSrc {
+	id: string
+	name: string
+	tags: string[]
+}
+
 // Video Type Post 
 export interface IF_Video {
 	id: string

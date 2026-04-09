@@ -8,6 +8,7 @@ import Home from '@/pages/home/Home.vue'
 
 import CategoriesPage from '@/pages/CategoriesPage.vue'
 import Categories from '@/pages/categories/Categories.vue'
+import VideoPost from '@/pages/categories/VideoPost.vue'
 
 import AboutPage from '@/pages/AboutPage.vue'
 
@@ -20,30 +21,47 @@ const router = createRouter({
     history: createWebHistory('/github_page_vue3/'),
     routes: [
         {
-            name: 'welcomePage', path: '/', component: WelcomePage, meta: { title: 'touhou-kiyuhi' }, 
+            name: 'welcomePage', path: '/', component: WelcomePage, 
             children: [
-                { name: 'welcomeProfileCard', path: '', component: ProfileCard, }
+                { 
+                    name: 'welcomeProfileCard', path: '', component: ProfileCard, 
+                    meta: { title: 'touhou-kiyuhi' } 
+                }
             ]
         }, 
         {
             name: 'homePage', path: '/home',  component: HomePage, 
             children: [
-                { name: 'Home', path: '', component: Home, meta: { title: 'touhou-kiyuhi - Home' } }
+                { 
+                    name: 'Home', path: '', component: Home, 
+                    meta: { title: 'touhou-kiyuhi - Home' } 
+                }
             ]
         },
         {
-            name: 'AboutPage', path: '/about', component: AboutPage, meta: { title: 'touhou-kiyuhi - About' }
+            name: 'AboutPage', path: '/about', component: AboutPage, 
+            meta: { title: 'touhou-kiyuhi - About' }
         },
         {
             name: 'CategoriesPage', path: '/categories', component: CategoriesPage, 
             children: [
-                { name: 'Categories', path: '', component: Categories, meta: { title: 'touhou-kiyuhi - Categories' } }
+                { 
+                    name: 'Categories', path: '', component: Categories, 
+                    meta: { title: 'touhou-kiyuhi - Categories' } 
+                }, 
+                { 
+                    name: 'VideoPost', path: 'videoPost/:tags', component: VideoPost, 
+                    meta: { title: 'touhou-kiyuhi - VideoPost' } 
+                }
             ]
         },
         {
             name: 'DemoPage', path: '/demo', component: DemoPage, 
             children: [
-                { name: 'Demo', path: '', component: Demo, meta: { title: 'touhou-kiyuhi - Demo' } }
+                { 
+                    name: 'Demo', path: '', component: Demo, 
+                    meta: { title: 'touhou-kiyuhi - Demo' } 
+                }
             ]
         },
     ],
