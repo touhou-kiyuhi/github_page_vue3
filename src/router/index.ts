@@ -5,7 +5,9 @@ import ProfileCard from '@/components/ProfileCard.vue'
 
 import HomePage from '@/pages/HomePage.vue'
 import Home from '@/pages/home/Home.vue'
-import Categories from '@/pages/home/Categories.vue'
+
+import CategoriesPage from '@/pages/CategoriesPage.vue'
+import Categories from '@/pages/categories/Categories.vue'
 
 import AboutPage from '@/pages/AboutPage.vue'
 
@@ -15,28 +17,37 @@ const router = createRouter({
     history: createWebHistory('/github_page_vue3/'),
     routes: [
         {
-            name: 'welcomePage', 
-            path: '/',  
-            component: WelcomePage, 
+            name: 'welcomePage', path: '/', component: WelcomePage, meta: { title: 'touhou-kiyuhi' }, 
             children: [
-                { name: 'welcomeProfileCard', path: '', component: ProfileCard }
+                { name: 'welcomeProfileCard', path: '', component: ProfileCard, }
             ]
         }, 
         {
-            name: 'homePage', 
-            path: '/home',  
-            component: HomePage,
+            name: 'homePage', path: '/home',  component: HomePage, 
             children: [
-                { name: 'Home', path: '', component: Home }, 
-                { name: 'Categories', path: '/categories', component: Categories }, 
+                { name: 'Home', path: '', component: Home, meta: { title: 'touhou-kiyuhi - Home' } }
             ]
         },
         {
-            name: 'AboutPage', 
-            path: '/about', 
-            component: AboutPage
+            name: 'CategoriesPage', path: '/categories', component: CategoriesPage, 
+            children: [
+                { name: 'Categories', path: '', component: Categories, meta: { title: 'touhou-kiyuhi - Categories' } }
+            ]
+        },
+        {
+            name: 'AboutPage', path: '/about', component: AboutPage, meta: { title: 'touhou-kiyuhi - About' }
         },
     ],
+})
+
+router.afterEach((to) => {
+    // 從 matched routes 找第一個有 title 的 meta
+    const nearestWithTitle = to.matched.slice().reverse().find(r => r.meta && r.meta.title)
+    if (nearestWithTitle) {
+        document.title = nearestWithTitle.meta.title as string
+    } else {
+        document.title = 'touhou-kiyuhi'
+    }
 })
 
 
