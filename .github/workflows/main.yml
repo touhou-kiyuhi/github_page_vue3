@@ -1,0 +1,53 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # 或你的預設分支
+  workflow_dispatch: # 允許手動觸發
+
+permissions:
+  id-token: write
+  contents: read # 可能還需其他權限
+  pages: write # 部署到 Github Pages
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js (若需靜態網站生成器)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build site (例如靜態網站生成器)
+        run: npm run build # 或你的建置指令
+
+      - name: Add .nojekyll file
+        run: touch dist/.nojekyll
+
+      - name: Add 404.html file
+        run: cp dist/index.html dist/404.html
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v3
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist # 或你的建置目錄
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
