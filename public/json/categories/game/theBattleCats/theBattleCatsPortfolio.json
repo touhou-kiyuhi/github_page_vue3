@@ -1,120 +1,222 @@
 {
     "tagList": [
-        "catFruit",
-        "crazedCat",
-        "cyclone",
-        "lilCat",
-        "manicCat",
-        "zombieOutbreaksMoon"
+        {
+            "id": "game",
+            "name": "game"
+        },
+        {
+            "id": "theBattleCats",
+            "name": "the Battle Cats"
+        },
+        {
+            "id": "catFruit",
+            "name": "cat Fruit"
+        },
+        {
+            "id": "crazedCat",
+            "name": "crazed Cat"
+        },
+        {
+            "id": "cyclone",
+            "name": "cyclone"
+        },
+        {
+            "id": "lilCat",
+            "name": "lil Cat"
+        },
+        {
+            "id": "manicCat",
+            "name": "manic Cat"
+        },
+        {
+            "id": "zombieOutbreaksMoon",
+            "name": "zombie Outbreaks Moon"
+        }
     ],
     "yearList": [
-        2025
+        2025,
+        2026
     ],
-    "dataList": [
+    "postList": [
         {
+            "id": "blueCatFruit",
+            "name": "進化的藍色貓薄荷",
             "tags": [
+                "game",
+                "theBattleCats",
                 "catFruit"
             ],
-            "year": 2025,
-            "json": "/json/categories/game/theBattleCats/catFruit/blueCatFruit.json"
+            "years": [
+                2025
+            ]
         },
         {
+            "id": "greenCatFruit",
+            "name": "進化的綠色貓薄荷",
             "tags": [
+                "game",
+                "theBattleCats",
                 "catFruit"
             ],
-            "year": 2025,
-            "json": "/json/categories/game/theBattleCats/catFruit/greenCatFruit.json"
+            "years": [
+                2025
+            ]
         },
         {
+            "id": "purpleCatFruit",
+            "name": "進化的紫色貓薄荷",
             "tags": [
+                "game",
+                "theBattleCats",
                 "catFruit"
             ],
-            "year": 2025,
-            "json": "/json/categories/game/theBattleCats/catFruit/purpleCatFruit.json"
+            "years": [
+                2025
+            ]
         },
         {
+            "id": "redCatFruit",
+            "name": "進化的紅色貓薄荷",
             "tags": [
+                "game",
+                "theBattleCats",
                 "catFruit"
             ],
-            "year": 2025,
-            "json": "/json/categories/game/theBattleCats/catFruit/redCatFruit.json"
+            "years": [
+                2025
+            ]
         },
         {
+            "id": "yellowCatFruit",
+            "name": "進化的黃色貓薄荷",
             "tags": [
+                "game",
+                "theBattleCats",
                 "catFruit"
             ],
-            "year": 2025,
-            "json": "/json/categories/game/theBattleCats/catFruit/yellowCatFruit.json"
+            "years": [
+                2025
+            ]
         },
         {
+            "id": "crazedCat",
+            "name": "狂亂貓咪",
             "tags": [
+                "game",
+                "theBattleCats",
                 "crazedCat"
             ],
-            "year": 2025,
-            "json": "/json/categories/game/theBattleCats/crazedCat/crazedCat.json"
+            "years": [
+                2025
+            ]
         },
         {
+            "id": "angelCyclone",
+            "name": "天譴",
             "tags": [
+                "game",
+                "theBattleCats",
                 "cyclone"
             ],
-            "year": 2025,
-            "json": "/json/categories/game/theBattleCats/cyclone/angelCyclone.json"
+            "years": [
+                2025
+            ]
         },
         {
+            "id": "blackCyclone",
+            "name": "黑暗天堂",
             "tags": [
+                "game",
+                "theBattleCats",
                 "cyclone"
             ],
-            "year": 2025,
-            "json": "/json/categories/game/theBattleCats/cyclone/blackCyclone.json"
+            "years": [
+                2025
+            ]
         },
         {
+            "id": "metalCyclone",
+            "name": "鐵子的部屋",
             "tags": [
+                "game",
+                "theBattleCats",
                 "cyclone"
             ],
-            "year": 2025,
-            "json": "/json/categories/game/theBattleCats/cyclone/metalCyclone.json"
+            "years": [
+                2025
+            ]
         },
         {
+            "id": "redCyclone",
+            "name": "紅色突變",
             "tags": [
+                "game",
+                "theBattleCats",
                 "cyclone"
             ],
-            "year": 2025,
-            "json": "/json/categories/game/theBattleCats/cyclone/redCyclone.json"
+            "years": [
+                2025
+            ]
         },
         {
+            "id": "thePerfectCyclone",
+            "name": "緊急暴風警報",
             "tags": [
+                "game",
+                "theBattleCats",
                 "cyclone"
             ],
-            "year": 2025,
-            "json": "/json/categories/game/theBattleCats/cyclone/thePerfectCyclone.json"
+            "years": [
+                2025
+            ]
         },
         {
+            "id": "whiteCyclone",
+            "name": "國士無雙",
             "tags": [
+                "game",
+                "theBattleCats",
                 "cyclone"
             ],
-            "year": 2025,
-            "json": "/json/categories/game/theBattleCats/cyclone/whiteCyclone.json"
+            "years": [
+                2025
+            ]
         },
         {
+            "id": "lilCat",
+            "name": "開眼小小貓咪",
             "tags": [
+                "game",
+                "theBattleCats",
                 "lilCat"
             ],
-            "year": 2025,
-            "json": "/json/categories/game/theBattleCats/lilCat/lilCat.json"
+            "years": [
+                2025
+            ]
         },
         {
+            "id": "manicCat",
+            "name": "大狂亂貓咪",
             "tags": [
+                "game",
+                "theBattleCats",
                 "manicCat"
             ],
-            "year": 2025,
-            "json": "/json/categories/game/theBattleCats/manicCat/manicCat.json"
+            "years": [
+                2025
+            ]
         },
         {
+            "id": "zombieOutbreaksMoon",
+            "name": "不死生物來襲 月球",
             "tags": [
+                "game",
+                "theBattleCats",
                 "zombieOutbreaksMoon"
             ],
-            "year": 2025,
-            "json": "/json/categories/game/theBattleCats/zombieOutbreaksMoon/zombieOutbreaksMoon.json"
+            "years": [
+                2025
+            ]
         }
     ]
 }

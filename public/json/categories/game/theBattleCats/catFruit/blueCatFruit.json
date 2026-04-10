@@ -15,11 +15,12 @@
 			"id": "l6RYsHauLj4"
 		}
 	],
-	"page": "/pages/categories/game/theBattleCats/catFruit/blueCatFruit.html",
-	"tags": [
-		"game",
-		"theBattleCats",
-		"catFruit"
-	],
-	"year": 2025
+    "tags": [
+        "game",
+        "theBattleCats",
+        "catFruit"
+    ],
+    "years": [
+        2025
+    ]
 }

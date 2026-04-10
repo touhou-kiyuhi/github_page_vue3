@@ -1,25 +1,26 @@
 {
-    "title": "\u7d05\u8272\u7a81\u8b8a",
-    "description": "\u7d00\u9304 \u8c93\u54aa\u5927\u6230\u722d \ud83d\udc3e \u7684\u5730\u65b9 \ud83d\udc3e\ud83d\udc3e",
+    "title": "紅色突變",
+    "description": "紀錄 貓咪大戰爭 🐾 的地方 🐾🐾",
     "videos": [
         {
-            "label": "\u7d05\u8272\u7a81\u8b8a \u9032\u64ca\u7684\u7d05\u6f29\u6e26 \u56f0\u96e3",
+            "label": "紅色突變 進擊的紅渦渦 困難",
             "id": "fhkgAQuXlOY"
         },
         {
-            "label": "\u7d55\u00b7\u7d05\u8272\u7a81\u8b8a \u9032\u64ca\u7684\u7d05\u6f29\u6e26 \u8d85\u7d1a\u96e3",
+            "label": "絕·紅色突變 進擊的紅渦渦 超級難",
             "id": "e0o7TMVhw8g"
         },
         {
-            "label": "\u7d55\u00b7\u7d05\u8272\u7a81\u8b8a \u7d55\u64ca\u7684\u7d05\u6f29\u6e26 \u6975\u96e3",
+            "label": "絕·紅色突變 絕擊的紅渦渦 極難",
             "id": "xFwr9s3BaNY"
         }
     ],
-    "page": "/pages/categories/game/theBattleCats/cyclone/redCyclone.html",
     "tags": [
         "game",
         "theBattleCats",
         "cyclone"
     ],
-    "year": 2025
+    "years": [
+        2025
+    ]
 }

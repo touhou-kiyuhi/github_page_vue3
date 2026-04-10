@@ -11,6 +11,8 @@
         { id: "game", name: "game" },
         { id: "theBattleCats", name: "the Battle Cats" },
         { id: "catFruit", name: "cat Fruit" },
+        { id: "crazedCat", name: "crazed Cat" },
+        { id: "manicCat", name: "manic Cat" },
     ]
     const activeTag = computed(() => selectedTag.value)
     function selectTag(tagId: string) {
@@ -23,6 +25,8 @@
         { id: "purpleCatFruit",  name: "進化的紫色貓薄荷", tags: ["game", "theBattleCats", "catFruit"] }, 
         { id: "redCatFruit",  name: "進化的紅色貓薄荷", tags: ["game", "theBattleCats", "catFruit"] }, 
         { id: "yellowCatFruit",  name: "進化的黃色貓薄荷", tags: ["game", "theBattleCats", "catFruit"] }, 
+        { id: "crazedCat",  name: "狂亂貓咪", tags: ["game", "theBattleCats", "crazedCat"] }, 
+        { id: "manicCat",  name: "大狂亂貓咪", tags: ["game", "theBattleCats", "manicCat"] }, 
     ]
     const filteredPostList = computed(() => {
         if (selectedTag.value === 'all') return posts

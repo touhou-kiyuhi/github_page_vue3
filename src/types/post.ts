@@ -11,14 +11,10 @@ export interface IF_Video {
 	id: string
 	label: string
 }
-
 export interface IF_VideoPost {
 	title: string
 	description: string
 	videos: IF_Video[]
-	page: string
-	tags: string[]
-	year: number
 }
 
 
