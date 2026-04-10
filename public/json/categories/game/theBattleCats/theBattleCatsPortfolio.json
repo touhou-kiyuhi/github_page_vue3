@@ -1,36 +1,28 @@
 {
     "tagList": [
         {
-            "id": "game",
-            "name": "game"
-        },
-        {
-            "id": "theBattleCats",
-            "name": "the Battle Cats"
-        },
-        {
             "id": "catFruit",
-            "name": "cat Fruit"
+            "name": "Cat Fruit"
         },
         {
             "id": "crazedCat",
-            "name": "crazed Cat"
+            "name": "Crazed Cat"
         },
         {
             "id": "cyclone",
-            "name": "cyclone"
+            "name": "Cyclone"
         },
         {
             "id": "lilCat",
-            "name": "lil Cat"
+            "name": "Lil Cat"
         },
         {
             "id": "manicCat",
-            "name": "manic Cat"
+            "name": "Manic Cat"
         },
         {
             "id": "zombieOutbreaksMoon",
-            "name": "zombie Outbreaks Moon"
+            "name": "Zombie Outbreaks Moon"
         }
     ],
     "yearList": [

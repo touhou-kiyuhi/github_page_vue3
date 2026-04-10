@@ -1,34 +1,40 @@
 <script setup lang="ts" name="BlogGallery">
-    import { computed, ref } from 'vue'
+    import { ref, onMounted, computed } from 'vue'
+    import type { IF_Portfolio, IF_Tag, IF_Post } from '@/types/post'
+    import { fetchJSON } from '@/hooks/useFetch'
     import BlogCard from '@/components/blog/BlogCard.vue'
     
     
-    // 處理 Filter
+    const props = defineProps<{ 
+        portfolioPath: string
+    }>()
+
+    const portfolioData = ref<IF_Portfolio>()
     const selectedTag = ref('all')
-    const tagList = [
-        { id: "all", name: "Show all" },
-        // 貓咪大戰爭 測資
-        { id: "game", name: "game" },
-        { id: "theBattleCats", name: "the Battle Cats" },
-        { id: "catFruit", name: "cat Fruit" },
-        { id: "crazedCat", name: "crazed Cat" },
-        { id: "manicCat", name: "manic Cat" },
-    ]
+    const tagList = ref<IF_Tag[]>([
+        { id: "all", name: "Show all" }
+    ])
+    const postList = ref<IF_Post[]>([])
+    
+    onMounted(async () => {
+        try {
+            if (!props.portfolioPath) return
+            portfolioData.value = await fetchJSON(props.portfolioPath)
+            if (!portfolioData.value) return
+            tagList.value.push(...portfolioData.value.tagList)
+            postList.value = portfolioData.value.postList
+            console.log(postList)
+        } catch (err) {
+            console.error('Fetch demo.json failed:', err)
+        }
+    })
+    // 處理 Filter
     const activeTag = computed(() => selectedTag.value)
     function selectTag(tagId: string) {
         selectedTag.value = tagId
     }
-    // 模擬 data
-    const posts = [
-        { id: "blueCatFruit",  name: "進化的藍色貓薄荷", tags: ["game", "theBattleCats", "catFruit"] }, 
-        { id: "greenCatFruit",  name: "進化的綠色貓薄荷", tags: ["game", "theBattleCats", "catFruit"] }, 
-        { id: "purpleCatFruit",  name: "進化的紫色貓薄荷", tags: ["game", "theBattleCats", "catFruit"] }, 
-        { id: "redCatFruit",  name: "進化的紅色貓薄荷", tags: ["game", "theBattleCats", "catFruit"] }, 
-        { id: "yellowCatFruit",  name: "進化的黃色貓薄荷", tags: ["game", "theBattleCats", "catFruit"] }, 
-        { id: "crazedCat",  name: "狂亂貓咪", tags: ["game", "theBattleCats", "crazedCat"] }, 
-        { id: "manicCat",  name: "大狂亂貓咪", tags: ["game", "theBattleCats", "manicCat"] }, 
-    ]
     const filteredPostList = computed(() => {
+        const posts = postList.value ?? []
         if (selectedTag.value === 'all') return posts
         return posts.filter(item => item.tags.includes(selectedTag.value))
     })
@@ -48,7 +54,7 @@
             <div v-for="post in filteredPostList" :key="post.id" class="column">
                 {{ post.name }}
                 <!-- BlogCard -->
-                <BlogCard :post="post"/>
+                <BlogCard :post="post" />
             </div>
         </div>
 	</div>

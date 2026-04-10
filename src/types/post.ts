@@ -1,9 +1,20 @@
-// export type PostType = 'video' | 'others'
+// export type PostType = 'video' | 'others'\
 
-export interface IF_PostSrc {
+// Portfolio
+export interface IF_Tag {
+	id: string
+	name: string
+}
+export interface IF_Post {
 	id: string
 	name: string
 	tags: string[]
+	years: number[]
+}
+export interface IF_Portfolio {
+	tagList: IF_Tag[]
+	yearList: number[]
+	postList: IF_Post[]
 }
 
 // Video Type Post 

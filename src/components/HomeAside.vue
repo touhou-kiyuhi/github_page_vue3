@@ -9,6 +9,7 @@
     const relatedArticlesLinks = [
         { name: "Home", path: "/home", id: "home-link" },
         { name: "Categories", path: "/categories", id: "categories-link" }, 
+        { name: "The Battle Cats Portfolio", path: "/theBattleCatsPortfolio", id: "theBattleCatsPortfolio-link" }, 
     ]
     const demoLinks = [
         { name: "Demo", path: "/demo", id: "demo-link" }
@@ -21,7 +22,7 @@
             <h3>Related Articles</h3>
             <ul>
                 <li v-for="link in relatedArticlesLinks" :key="link.id">
-                    <RouterLink :to="link.path" :id="link.id"> {{ link.name }} </RouterLink>
+                    <RouterLink :to="{ name: link.name }" :id="link.id"> {{ link.name }} </RouterLink>
                 </li>
                 <!-- 待設計 -->
                 <!-- <li><a id="theBattleCatsPortfolio-link" href="#TheBattleCatsPortfolio">The Battle Cats</a></li> -->

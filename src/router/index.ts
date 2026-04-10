@@ -8,6 +8,7 @@ import Home from '@/pages/home/Home.vue'
 
 import CategoriesPage from '@/pages/CategoriesPage.vue'
 import Categories from '@/pages/categories/Categories.vue'
+import TheBattleCatsPortfolio from '@/pages/categories/TheBattleCatsPortfolio.vue'
 import VideoPost from '@/pages/categories/VideoPost.vue'
 
 import AboutPage from '@/pages/AboutPage.vue'
@@ -48,6 +49,10 @@ const router = createRouter({
                 { 
                     name: 'Categories', path: '', component: Categories, 
                     meta: { title: 'touhou-kiyuhi - Categories' } 
+                }, 
+                { 
+                    name: 'The Battle Cats Portfolio', path: 'theBattleCatsPortfolio', component: TheBattleCatsPortfolio, 
+                    meta: { title: 'touhou-kiyuhi - The Battle Cats Portfolio' } 
                 }, 
                 { 
                     name: 'VideoPost', path: 'videoPost/:tags', component: VideoPost, 

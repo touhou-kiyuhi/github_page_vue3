@@ -37,8 +37,9 @@ class PortfolioJsonManager:
                     post_json_data = self.jsonController.jsonReader(post_json_path)
                     self.update(json_data, post_json_data, filename)
 
-    def split_camel(self, text):
-        return re.sub(r'(?<!^)(?=[A-Z])', ' ', text)
+    def split_camel(self, text: str):
+        text = re.sub(r'(?<!^)(?=[A-Z])', ' ', text)
+        return text.title()
 
     # 更新
     def update(self, json_data: Dict[str, Any], post_json_data: Dict[str, Any], filename):
@@ -50,12 +51,14 @@ class PortfolioJsonManager:
         }
         tagList = []
         for tag in post_json_data["tags"]:
-            tagList.append(
-                {
-                    "id": tag, 
-                    "name": self.split_camel(tag)
-                }
-            )
+            # 忽略 Portfolio 名稱的父層 tag 
+            if tag not in self.folders:
+                tagList.append(
+                    {
+                        "id": tag, 
+                        "name": self.split_camel(tag)
+                    }
+                )
         if json_data == {}:
             json_data = {
                 "tagList": tagList,
@@ -70,12 +73,13 @@ class PortfolioJsonManager:
                 json_data["postList"].append(new_post)
                 # 檢查重複元素
                 for tag in post_json_data["tags"]:
-                    tag_dict = {
-                        "id": tag, 
-                        "name": self.split_camel(tag)
-                    }
-                    if tag_dict not in json_data["tagList"]:
-                        json_data["tagList"].append(tag_dict)
+                    if tag not in self.folders:
+                        tag_dict = {
+                            "id": tag, 
+                            "name": self.split_camel(tag)
+                        }
+                        if tag_dict not in json_data["tagList"]:
+                            json_data["tagList"].append(tag_dict)
                 # year
                 new_year = datetime.datetime.now().year
                 if new_year not in json_data["yearList"]:

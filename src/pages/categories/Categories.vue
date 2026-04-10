@@ -1,5 +1,5 @@
 <script setup lang="ts" name="Categories">
-    import BlogGallery from '@/components/blog/BlogGallery.vue'
+    
 </script>
 
 <template>
@@ -7,7 +7,6 @@
         <section class="introduction">
             <h1>Welcome to Categories</h1>
         </section>
-        <BlogGallery/>
     </main>
 </template>
 

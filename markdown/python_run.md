@@ -6,8 +6,8 @@
 python -m python -m scripts.json.game.gameJsonBuilder
 ```
 
-## 建立 各別 categories post 資料 json 
+## 建立 portfolio post 資料 json 
 ```sh
 .\venv\Scripts\activate
-python -m scripts.json.categoriesJsonManager
+python -m scripts.json.portfolioJsonManager
 ```
