@@ -11,6 +11,10 @@ import Categories from '@/pages/categories/Categories.vue'
 import TheBattleCatsPortfolio from '@/pages/categories/TheBattleCatsPortfolio.vue'
 import VideoPost from '@/pages/categories/VideoPost.vue'
 
+import UtilitiesPage from '@/pages/UtilitiesPage.vue'
+import Utilities from '@/pages/utilities/Utilities.vue'
+import SudokuSolver from '@/pages/utilities/SudokuSolver.vue'
+
 import AboutPage from '@/pages/AboutPage.vue'
 
 import DemoPage from '@/pages/DemoPage.vue'
@@ -57,6 +61,22 @@ const router = createRouter({
                 { 
                     name: 'VideoPost', path: 'videoPost/:tags', component: VideoPost, 
                     meta: { title: 'touhou-kiyuhi - VideoPost' } 
+                }
+            ]
+        },
+        {
+            name: 'UtilitiesPage', path: '/utilities',  component: UtilitiesPage, 
+            children: [
+                { 
+                    name: 'Utilities', path: '', component: Utilities, 
+                    meta: { title: 'touhou-kiyuhi - Utilities' }, 
+                    children: [
+                        { 
+                            name: 'Sudoku Solver', path: 'sudokuSolver', component: SudokuSolver, 
+                            meta: { title: 'touhou-kiyuhi - Sudoku Solver' } 
+                        }
+                    ]
+                    
                 }
             ]
         },

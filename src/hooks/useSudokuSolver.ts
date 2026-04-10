@@ -7,7 +7,7 @@ export function useSudoku() {
 	function createBoard() {
 		return Array.from({ length: 9 }, () =>
 			Array.from({ length: 9 }, () => ({
-				value: 0,
+				value: '',
 				isSolved: false
 			}))
 		)
@@ -44,7 +44,7 @@ export function useSudoku() {
         // 找下一個空格
         for (let rowIndex = 0; rowIndex < 9; rowIndex++) {
             for (let colIndex = 0; colIndex < 9; colIndex++) {
-                if (board.value[rowIndex][colIndex].value !== 0) continue
+                if (board.value[rowIndex][colIndex].value !== '') continue
                 // 嘗試 1~9
                 for (let candidate = 1; candidate <= 9; candidate++) {
                     if (isValid(rowIndex, colIndex, candidate)) {
@@ -54,7 +54,7 @@ export function useSudoku() {
                         // 往下遞迴
                         if (backtracking()) return true
                         // 回溯
-                        board.value[rowIndex][colIndex].value = 0
+                        board.value[rowIndex][colIndex].value = ''
                         board.value[rowIndex][colIndex].isSolved = false
                     }
                 }

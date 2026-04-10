@@ -1,6 +1,6 @@
-<script setup lang="ts" name="ProfileCard">
+<script setup lang="ts" name="SudokuSolver">
 	import { onMounted } from 'vue'
-    import { useSudoku } from '@/hooks/useSudoku'
+    import { useSudoku } from '@/hooks/useSudokuSolver'
 
     const { board, loadEmpty, solve } = useSudoku()
 

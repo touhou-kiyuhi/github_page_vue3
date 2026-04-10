@@ -13,6 +13,9 @@
     const portfolioLinks = [
         { name: "The Battle Cats Portfolio", path: "/theBattleCatsPortfolio", id: "theBattleCatsPortfolio-link" }, 
     ]
+    const utilitiesLinks = [
+        { name: "Sudoku Solver", path: "sudokuSolver", id: "sudokuSolver-link" }, 
+    ]
     const demoLinks = [
         { name: "Demo", path: "/demo", id: "demo-link" }
     ]
@@ -35,9 +38,12 @@
                 <li v-for="link in portfolioLinks" :key="link.id">
                     <RouterLink :to="{ name: link.name }" :id="link.id"> {{ link.name }} </RouterLink>
                 </li>
-                <!-- 待設計 -->
-                <!-- <li><a id="theBattleCatsPortfolio-link" href="#TheBattleCatsPortfolio">The Battle Cats</a></li> -->
-                <!-- <li><a id="languagesStudy-link" href="#languagesStudy">Languages Study</a></li> -->
+            </ul>
+            <h3>Utilities</h3>
+            <ul>
+                <li v-for="link in utilitiesLinks" :key="link.id">
+                    <RouterLink :to="{ name: link.name }" :id="link.id"> {{ link.name }} </RouterLink>
+                </li>
             </ul>
             <h3>Demo Areas</h3>
             <ul>
