@@ -1,10 +1,10 @@
 <script setup lang="ts" name="BlogCard">
-    import type { IF_PostSrc } from '@/types/post'
+    import type { IF_Post } from '@/types/post'
     import catInBox from '@/assets/logo.svg'
 
 
     const props = defineProps<{ 
-        post: IF_PostSrc 
+        post: IF_Post 
     }>()
 </script>
 
