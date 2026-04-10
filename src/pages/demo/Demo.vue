@@ -3,6 +3,7 @@
     import CodeBlockFileLoader from '@/components/codeBlock/CodeBlockFileLoader.vue'
     import CodeBlockMarkdownLoader from '@/components/codeBlock/CodeBlockMarkdownLoader.vue'
     import BlogGallery from '@/components/blog/BlogGallery.vue'
+    import Sudoku from '@/components/Sudoku.vue'
 </script>
 
 <template>
@@ -10,6 +11,7 @@
         <section class="introduction">
             <h1>Demo</h1>
         </section>
+        <Sudoku />
         <!-- <BlogGallery /> -->
         <!-- <img :src="ljjmk94ProfileCard" alt="小闇！！" title="窩是隻卯咪！！ 嗷嗷嗷！！"> -->
         <!-- 待調整 -->
