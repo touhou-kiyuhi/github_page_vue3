@@ -8,7 +8,9 @@
     const isNotAbout = computed(() => route.path !== '/about')
     const relatedArticlesLinks = [
         { name: "Home", path: "/home", id: "home-link" },
-        { name: "Categories", path: "/categories", id: "categories-link" }, 
+        { name: "Categories", path: "/categories", id: "categories-link" },
+    ]
+    const portfolioLinks = [
         { name: "The Battle Cats Portfolio", path: "/theBattleCatsPortfolio", id: "theBattleCatsPortfolio-link" }, 
     ]
     const demoLinks = [
@@ -22,6 +24,15 @@
             <h3>Related Articles</h3>
             <ul>
                 <li v-for="link in relatedArticlesLinks" :key="link.id">
+                    <RouterLink :to="{ name: link.name }" :id="link.id"> {{ link.name }} </RouterLink>
+                </li>
+                <!-- 待設計 -->
+                <!-- <li><a id="theBattleCatsPortfolio-link" href="#TheBattleCatsPortfolio">The Battle Cats</a></li> -->
+                <!-- <li><a id="languagesStudy-link" href="#languagesStudy">Languages Study</a></li> -->
+            </ul>
+            <h3>Portfolio</h3>
+            <ul>
+                <li v-for="link in portfolioLinks" :key="link.id">
                     <RouterLink :to="{ name: link.name }" :id="link.id"> {{ link.name }} </RouterLink>
                 </li>
                 <!-- 待設計 -->
