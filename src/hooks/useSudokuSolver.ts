@@ -7,7 +7,7 @@ export function useSudoku() {
 	function createBoard() {
 		return Array.from({ length: 9 }, () =>
 			Array.from({ length: 9 }, () => ({
-				value: '',
+				value: null,
 				isSolved: false
 			}))
 		)
@@ -17,7 +17,7 @@ export function useSudoku() {
 		board.value = createBoard()
 	}
 
-	function isValid(rowIndex: number, colIndex: number, candidate: number): boolean {
+	function isValid(rowIndex: number, colIndex: number, candidate: number | null): boolean {
         // 檢查 row, column
         for (let i = 0; i < 9; i++) {
             // row 
@@ -40,11 +40,30 @@ export function useSudoku() {
         return true
     }
 
+    // 待修正
+    // function trySetValue(rowIndex: number, colIndex: number, value: number | null): boolean {
+    //     if (value == null) {
+    //         board.value[rowIndex][colIndex].value = null
+    //         board.value[rowIndex][colIndex].isSolved = false
+    //         return true
+    //     }
+
+    //     // 如果違反數獨規則 → 直接擋掉
+    //     if (!isValid(rowIndex, colIndex, value)) {
+    //         return false
+    //     }
+
+    //     board.value[rowIndex][colIndex].value = value
+    //     board.value[rowIndex][colIndex].isSolved = false
+
+    //     return true
+    // }
+
     const backtracking = (): boolean => {
         // 找下一個空格
         for (let rowIndex = 0; rowIndex < 9; rowIndex++) {
             for (let colIndex = 0; colIndex < 9; colIndex++) {
-                if (board.value[rowIndex][colIndex].value !== '') continue
+                if (board.value[rowIndex][colIndex].value !== null) continue
                 // 嘗試 1~9
                 for (let candidate = 1; candidate <= 9; candidate++) {
                     if (isValid(rowIndex, colIndex, candidate)) {
@@ -54,7 +73,7 @@ export function useSudoku() {
                         // 往下遞迴
                         if (backtracking()) return true
                         // 回溯
-                        board.value[rowIndex][colIndex].value = ''
+                        board.value[rowIndex][colIndex].value = null
                         board.value[rowIndex][colIndex].isSolved = false
                     }
                 }
@@ -72,6 +91,7 @@ export function useSudoku() {
 
     return {
         board,
+        // trySetValue, 
         loadEmpty, solve
     }
 }

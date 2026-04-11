@@ -2,11 +2,32 @@
 	import { onMounted } from 'vue'
     import { useSudoku } from '@/hooks/useSudokuSolver'
 
-    const { board, loadEmpty, solve } = useSudoku()
+    const { 
+        board, 
+        // trySetValue, 
+        loadEmpty, solve 
+    } = useSudoku()
 
 	onMounted(() => {
 		loadEmpty()
 	})
+
+    function onInput(e: Event, cell: any, i: number = 0, j: number = 0) {
+        const input = (e.target as HTMLInputElement).value
+        // 只允許 1~9 單一數字
+        if (!/^[1-9]$/.test(input)) {
+            cell.value = null
+            return
+        }
+
+        const value = Number(input)
+
+        // // 嘗試寫入（失敗就還原）
+        // const ok = trySetValue(i, j, value)
+        // // 擋掉輸入
+        // if (!ok) cell.value = null
+        cell.value = value
+    }
 </script>
 
 <template>
@@ -22,10 +43,9 @@
             <div class="sudoku-grid">
                 <div v-for="(row, i) in board" :key="i" class="sudoku-row">
                     <input
+                        v-for="(cell, j) in row" :key="j" v-model.number="cell.value"
                         class="sudoku-cell" :class="cell.isSolved ? 'solved' : 'user'"
-                        v-for="(cell, j) in row" :key="j"
-                        v-model.number="cell.value"
-                        maxlength="1"
+                        maxlength="1" inputmode="numeric" @input="onInput($event, cell)"
                     />
                 </div>
             </div>
