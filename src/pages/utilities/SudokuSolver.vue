@@ -94,7 +94,6 @@
 
         white-space: nowrap;
     }
-
     .sudoku-button:hover {
         background-color: #ddd;
     }
@@ -115,8 +114,22 @@
         display: grid;
         grid-template-columns: repeat(9, 1fr);
     }
+    /* 3x3 粗線 */
+    .sudoku-row:nth-child(3n) .sudoku-cell {
+        border-bottom: 3px solid black;
+    }
+    .sudoku-cell:nth-child(3n) {
+        border-right: 3px solid black;
+    }
+    /* 移除最外層重疊 */
+    .sudoku-row:nth-child(9n) .sudoku-cell {
+        border-bottom: 0;
+    }
+    .sudoku-cell:nth-child(9n) {
+        border-right: 0;
+    }
 
-    /* 格子（關鍵修正） */
+    /* 格子 */
     .sudoku-cell {
         width: 100%;
         height: 100%;
@@ -132,21 +145,6 @@
         box-sizing: border-box;
 
         padding: 0; /* 避免內距撐開 */
-    }
-
-    /* 3x3 粗線 */
-    .sudoku-row:nth-child(3n) .sudoku-cell {
-        border-bottom: 3px solid black;
-    }
-    .sudoku-cell:nth-child(3n) {
-        border-right: 3px solid black;
-    }
-    /* 移除最外層重疊 */
-    .sudoku-row:nth-child(9n) .sudoku-cell {
-        border-bottom: 0;
-    }
-    .sudoku-cell:nth-child(9n) {
-        border-right: 0;
     }
 
     /* 顏色 */
