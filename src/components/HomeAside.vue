@@ -1,56 +1,52 @@
 <script setup lang="ts" name="HomeAside">
-    import { computed } from 'vue'
-    import { useRoute } from 'vue-router'
     import ProfileCard from '@/components/ProfileCard.vue'
 
 
-    const route = useRoute()
-    const isNotAbout = computed(() => route.path !== '/about')
-    const relatedArticlesLinks = [
-        { name: "Home", path: "/home", id: "home-link" },
-        { name: "Categories", path: "/categories", id: "categories-link" },
-    ]
-    const portfolioLinks = [
-        { name: "The Battle Cats Portfolio", path: "/theBattleCatsPortfolio", id: "theBattleCatsPortfolio-link" }, 
-    ]
-    const utilitiesLinks = [
-        { name: "Sudoku Solver", path: "sudokuSolver", id: "sudokuSolver-link" }, 
-    ]
-    const demoLinks = [
-        { name: "Demo", path: "/demo", id: "demo-link" }
+    const sections = [
+        {
+            title: "Related Articles",
+            links: [
+                { name: "Home", label: "Home" },
+                { name: "Categories", label: "Categories" }
+            ]
+        },
+        {
+            title: "Portfolio",
+            links: [
+                { name: "TheBattleCatsPortfolio", label: "The Battle Cats Portfolio" }
+            ]
+        },
+        {
+            title: "Utilities",
+            links: [
+                { name: "SudokuSolver", label: "Sudoku Solver" }
+            ]
+        },
+        {
+            title: "Demo Areas",
+            links: [
+                { name: "Demo", label: "Demo" }
+            ]
+        }
     ]
 </script>
 
 <template>
-    <div v-if="isNotAbout" class="content-asides">
+    <div class="content-asides">
         <aside>
-            <h3>Related Articles</h3>
-            <ul>
-                <li v-for="link in relatedArticlesLinks" :key="link.id">
-                    <RouterLink :to="{ name: link.name }" :id="link.id"> {{ link.name }} </RouterLink>
-                </li>
-                <!-- 待設計 -->
-                <!-- <li><a id="theBattleCatsPortfolio-link" href="#TheBattleCatsPortfolio">The Battle Cats</a></li> -->
-                <!-- <li><a id="languagesStudy-link" href="#languagesStudy">Languages Study</a></li> -->
-            </ul>
-            <h3>Portfolio</h3>
-            <ul>
-                <li v-for="link in portfolioLinks" :key="link.id">
-                    <RouterLink :to="{ name: link.name }" :id="link.id"> {{ link.name }} </RouterLink>
-                </li>
-            </ul>
-            <h3>Utilities</h3>
-            <ul>
-                <li v-for="link in utilitiesLinks" :key="link.id">
-                    <RouterLink :to="{ name: link.name }" :id="link.id"> {{ link.name }} </RouterLink>
-                </li>
-            </ul>
-            <h3>Demo Areas</h3>
-            <ul>
-                <li v-for="link in demoLinks" :key="link.id">
-                    <RouterLink :to="link.path" :id="link.id"> {{ link.name }} </RouterLink>
-                </li>
-            </ul>
+            <div v-for="section in sections" :key="section.title">
+                <h3>{{ section.title }}</h3>
+                <ul>
+                    <li v-for="link in section.links" :key="link.name">
+                        <RouterLink :to="{ name: link.name }">
+                            {{ link.label }}
+                        </RouterLink>
+                    </li>
+                    <!-- 待設計 -->
+                    <!-- <li><a id="theBattleCatsPortfolio-link" href="#TheBattleCatsPortfolio">The Battle Cats</a></li> -->
+                    <!-- <li><a id="languagesStudy-link" href="#languagesStudy">Languages Study</a></li> -->
+                </ul>
+            </div>
         </aside>
         <!-- Profile Card -->
         <aside>

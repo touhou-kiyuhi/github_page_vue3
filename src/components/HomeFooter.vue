@@ -3,7 +3,7 @@
 
 
     const links = [
-        { id: "home-link", name: "Home", path: "/home" }
+        { label: "Home", path: "/home", id: "home-link" }
     ]
     const { mailContact } = useMail()
     const socialLinks = [
@@ -23,7 +23,7 @@
             <nav>
                 <ul>
                     <li v-for="link in links" :key="link.id">
-                        <RouterLink :to="link.path" :id="link.id"> {{ link.name }} </RouterLink>
+                        <RouterLink :to="link.path" :id="link.id"> {{ link.label }} </RouterLink>
                     </li>
                     <!-- 待設計 -->
                     <!-- <li><a href="#privacy">Privacy Policy</a></li> -->

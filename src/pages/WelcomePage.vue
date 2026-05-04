@@ -6,7 +6,7 @@
     <div class="content-wrapper">
         <main class="welcome-main">
             <div class="profile-card-wrapper">
-                <ProfileCard/>
+                <ProfileCard />
             </div>
         </main>
     </div>

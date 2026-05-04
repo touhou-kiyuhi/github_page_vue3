@@ -10,7 +10,7 @@
 <template>
     <main class="home-main">
         <section class="introduction">
-            <h1>Welcome<TextTyping :content="introductionTitleList"/></h1>
+            <h1>Welcome<TextTyping :content="introductionTitleList" /></h1>
             <p>I primarily program in Python and Java, with occasional coding in Ruby, C, and HTML/CSS/JavaScript.</p>
             <p>This is my personal test website where I practice and record my learning journey, including coding, language study, and anything else I explore.</p>
         </section>

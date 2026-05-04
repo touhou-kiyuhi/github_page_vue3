@@ -4,20 +4,19 @@ import WelcomePage from '@/pages/WelcomePage.vue'
 import ProfileCard from '@/components/ProfileCard.vue'
 
 import HomePage from '@/pages/HomePage.vue'
+
 import Home from '@/pages/home/Home.vue'
 
-import CategoriesPage from '@/pages/CategoriesPage.vue'
+import About from '@/pages/about/About.vue'
+
+import CategoriesPage from '@/pages/categories/CategoriesPage.vue'
 import Categories from '@/pages/categories/Categories.vue'
 import TheBattleCatsPortfolio from '@/pages/categories/TheBattleCatsPortfolio.vue'
 import VideoPost from '@/pages/categories/VideoPost.vue'
 
-import UtilitiesPage from '@/pages/UtilitiesPage.vue'
 import Utilities from '@/pages/utilities/Utilities.vue'
 import SudokuSolver from '@/pages/utilities/SudokuSolver.vue'
 
-import AboutPage from '@/pages/AboutPage.vue'
-
-import DemoPage from '@/pages/DemoPage.vue'
 import Demo from '@/pages/demo/Demo.vue'
 
 
@@ -26,65 +25,57 @@ const router = createRouter({
     history: createWebHistory('/github_page_vue3/'),
     routes: [
         {
-            name: 'welcomePage', path: '/', component: WelcomePage, 
+            name: 'WelcomePage', path: '/', component: WelcomePage, 
             children: [
                 { 
-                    name: 'welcomeProfileCard', path: '', component: ProfileCard, 
+                    name: 'WelcomeProfileCard', path: '', component: ProfileCard, 
                     meta: { title: 'touhou-kiyuhi' } 
                 }
             ]
         }, 
         {
-            name: 'homePage', path: '/home',  component: HomePage, 
+            name: 'HomePage', path: '/',  component: HomePage, 
             children: [
                 { 
-                    name: 'Home', path: '', component: Home, 
+                    name: 'Home', path: 'home', component: Home, 
                     meta: { title: 'touhou-kiyuhi - Home' } 
-                }
-            ]
-        },
-        {
-            name: 'AboutPage', path: '/about', component: AboutPage, 
-            meta: { title: 'touhou-kiyuhi - About' }
-        },
-        {
-            name: 'CategoriesPage', path: '/categories', component: CategoriesPage, 
-            children: [
+                },
+                {
+                    name: 'About', path: 'about', component: About, 
+                    meta: { 
+                        title: 'touhou-kiyuhi - About', 
+                        showAside: false
+                    }
+                },
                 { 
-                    name: 'Categories', path: '', component: Categories, 
-                    meta: { title: 'touhou-kiyuhi - Categories' } 
+                    name: 'CategoriesPage', path: 'categories', component: CategoriesPage, 
+                    children: [
+                        { 
+                            name: 'Categories', path: '', component: Categories, 
+                            meta: { title: 'touhou-kiyuhi - Categories' }
+                        },
+                        { 
+                            name: 'TheBattleCatsPortfolio', path: 'theBattleCatsPortfolio', component: TheBattleCatsPortfolio, 
+                            meta: { title: 'touhou-kiyuhi - The Battle Cats Portfolio' } 
+                        }, 
+                        { 
+                            name: 'VideoPost', path: 'videoPost/:tags', component: VideoPost, 
+                            meta: { title: 'touhou-kiyuhi - VideoPost' } 
+                        }
+                    ]
                 }, 
                 { 
-                    name: 'The Battle Cats Portfolio', path: 'theBattleCatsPortfolio', component: TheBattleCatsPortfolio, 
-                    meta: { title: 'touhou-kiyuhi - The Battle Cats Portfolio' } 
-                }, 
-                { 
-                    name: 'VideoPost', path: 'videoPost/:tags', component: VideoPost, 
-                    meta: { title: 'touhou-kiyuhi - VideoPost' } 
-                }
-            ]
-        },
-        {
-            name: 'UtilitiesPage', path: '/utilities',  component: UtilitiesPage, 
-            children: [
-                { 
-                    name: 'Utilities', path: '', component: Utilities, 
+                    name: 'Utilities', path: 'utilities', component: Utilities, 
                     meta: { title: 'touhou-kiyuhi - Utilities' }, 
                     children: [
                         { 
-                            name: 'Sudoku Solver', path: 'sudokuSolver', component: SudokuSolver, 
+                            name: 'SudokuSolver', path: 'sudokuSolver', component: SudokuSolver, 
                             meta: { title: 'touhou-kiyuhi - Sudoku Solver' } 
                         }
                     ]
-                    
-                }
-            ]
-        },
-        {
-            name: 'DemoPage', path: '/demo', component: DemoPage, 
-            children: [
+                },
                 { 
-                    name: 'Demo', path: '', component: Demo, 
+                    name: 'Demo', path: 'demo', component: Demo, 
                     meta: { title: 'touhou-kiyuhi - Demo' } 
                 }
             ]

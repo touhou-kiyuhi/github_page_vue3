@@ -1,10 +1,8 @@
-<script setup lang="ts" name="AboutPage">
-    import HomeHeader from '@/components/HomeHeader.vue'
-    import HomeFooter from '@/components/HomeFooter.vue'
+<script setup lang="ts" name="About">
     import ProfileCard from '@/components/ProfileCard.vue'
     import { ref, watch } from 'vue'
     import { useAboutPageMoveCard } from '@/hooks/about/useMoveCard'
-    import IntroductionTyping from './about/IntroductionTyping.vue'
+    import IntroductionTyping from '@/components/IntroductionTyping.vue'
 
 
     const { moveCard, isMobile } = useAboutPageMoveCard()
@@ -21,31 +19,24 @@
 </script>
 
 <template>
-    <!-- Header -->
-    <HomeHeader/>
-    <div class="content-wrapper">
-        <!-- Main -->
-        <main id="about-main">
-            <div id="introduction-animation">
-                <div class="introduction-text-content">
-                    <IntroductionTyping 
-                        :typingStart="IntroductionStartTyping"
-                        :isMobile="isMobile"
-                    />
-                </div>
-                <div :class="['profile-card-content', { 'move-to-4': moveCard }]">
-                    <!-- Profile Card -->
-                    <ProfileCard />
-                </div>
+    <main id="about-main">
+        <div id="introduction-animation">
+            <div class="introduction-text-content">
+                <IntroductionTyping 
+                    :typingStart="IntroductionStartTyping"
+                    :isMobile="isMobile"
+                />
             </div>
-            <!-- 待續 -->
-            <!-- <div>
+            <div :class="['profile-card-content', { 'move-to-4': moveCard }]">
+                <!-- Profile Card -->
                 <ProfileCard />
-            </div> -->
-        </main>
-    </div>
-    <!-- Footer -->
-    <HomeFooter/>
+            </div>
+        </div>
+        <!-- 待續 -->
+        <!-- <div>
+            <ProfileCard />
+        </div> -->
+    </main>
 </template>
 
 <style scoped>

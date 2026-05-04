@@ -20,31 +20,24 @@
 </script>
 
 <template>
-    <main class="video-post-main">
-        <section class="intro" v-if="videoPostData">
-            <h1>{{ videoPostData?.title }}</h1>
-            <p>{{ videoPostData?.description }}</p>
-        </section>
-        <section v-if="videoPostData?.videos.length" v-for="video in videoPostData?.videos" :key="video.id">
-            <h2>{{ video.label }}</h2>
-            <div class="video-container">
-                <iframe :src="`https://www.youtube.com/embed/${video.id}`" 
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                ></iframe>
-            </div>
-        </section>
-    </main>
+    <section class="introduction" v-if="videoPostData">
+        <h1>{{ videoPostData?.title }}</h1>
+        <p>{{ videoPostData?.description }}</p>
+    </section>
+    <section v-if="videoPostData?.videos.length" v-for="video in videoPostData?.videos" :key="video.id">
+        <h2>{{ video.label }}</h2>
+        <div class="video-container">
+            <iframe :src="`https://www.youtube.com/embed/${video.id}`" 
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+            ></iframe>
+        </div>
+    </section>
 </template>
 
 <style scoped>
-    .video-post-main {
-        flex: 1;
-        padding: 20px;
-    }
-
-    .video-post-main .introduction p {
+    .introduction p {
         font-size: 18px;
     }
     .video-container {

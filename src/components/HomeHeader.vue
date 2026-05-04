@@ -10,8 +10,8 @@
     }
 
     const links = [
-        { name: "Home", path: "/home", id: "home-link" },
-        { name: "About", path: "/about", id: "about-link" }
+        { label: "Home", path: "/home", id: "home-link" },
+        { label: "About", path: "/about", id: "about-link" }
     ]
 
     const { mailContact } = useMail()
@@ -29,7 +29,7 @@
         <nav id="header-links" :class="{ show: isMenuOpen }">
             <ul>
                 <li v-for="link in links" :key="link.id">
-                    <RouterLink :to="link.path" :id="link.id"> {{ link.name }} </RouterLink>
+                    <RouterLink :to="link.path" :id="link.id"> {{ link.label }} </RouterLink>
                 </li>
                 <li><a href="#contact" @click="mailContact">Contact</a></li>
             </ul>
